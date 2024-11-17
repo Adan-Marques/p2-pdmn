@@ -20,6 +20,7 @@ export default function App() {
         imagesData.map(function (imageData) {
           let image = `${imageData.url}`;
           console.log(image)
+          setGatos(image)
         });
       })
   }
@@ -35,24 +36,11 @@ export default function App() {
           Gerar fotos de gatos
         </Text>
       </Pressable>
-      <View>
-        <Text>Deverá aparecer aqui embaixo</Text>
         <Image
-          source={{ uri: gato.url }}
+          style={styles.image}
+          source={{ uri: gato }}
         />
-      </View>
-      {/* <FlatList
-        //keyExtractor={item => item.url}
-        //style={styles.list}
-        //data={gato}
-        renderItem={i => (
-          <View>
-            <Image
-              source={{ uri: target }}
-            />
-          </View>
-        )}
-      /> */}
+      <Text>{gato}</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -78,4 +66,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold'
   },
+  image: {
+    height: 500,
+    width: 500,
+  }
 });
